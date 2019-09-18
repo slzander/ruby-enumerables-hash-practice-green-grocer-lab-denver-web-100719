@@ -46,7 +46,7 @@ def checkout(cart, coupons)
   hash_cart = apply_coupons(hash_cart, coupons)
   hash_cart = apply_clearance(hash_cart)
   
-  total_cost = hash_cart.reduce(0) { |memo, (key, value)| memo += [value][:price] * [value][:count]}
+  total_cost = hash_cart.reduce(0) { |memo, (key, value)| memo += value[:price] * value[:count]}
   
   total_cost *= 0.9 if total_cost >= 100
   total_cost 
