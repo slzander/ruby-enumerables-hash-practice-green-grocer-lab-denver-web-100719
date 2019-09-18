@@ -51,7 +51,7 @@ def checkout(cart, coupons)
     total_cost += details[:price]
   end 
   total_cost *= 0.9 if total_cost >= 100
-  cart 
+  total_cost 
 end
 
 
