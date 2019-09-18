@@ -51,3 +51,4 @@ def checkout(cart, coupons)
   total_cost *= 0.9 if total_cost >= 100
   total_cost 
 end
+
