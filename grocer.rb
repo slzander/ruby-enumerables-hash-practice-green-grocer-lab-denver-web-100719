@@ -1,9 +1,35 @@
+require 'pry'
+
 def consolidate_cart(cart)
-  # code here
+  hash = {}
+  cart.each do |n|
+    food = n.keys[0]
+
+    if hash.has_key?(food)
+      hash[food][:count] += 1 
+    else
+      hash[food] = {
+        count: 1,
+        price: n[food][:price],
+        clearance: n[food][:clearance]
+      }
+    end
+  end
+  hash
 end
 
 def apply_coupons(cart, coupons)
-  # code here
+  coupons.each do |coupon|
+    item = coupon[item]
+    if cart[item] && cart[item][:count] >= coupon[:num] && !cart["#{item} W/COUPON"]
+      cart["#{item} W/COUPON"] = {price: coupon[:cost] / coupon[:num], clearance: cart[item][:clearance], count: coupon[:num]
+      cart[:item][:count] -= coupon[:num]
+    else if cart[item] && coupon[item][:count] >= coupon[:num] && cart["#{item} W/COUPON"][:count] += coupon[:num]
+      cart[item][:count] -= coupon[:num]
+
+    end
+  end
+  cart
 end
 
 def apply_clearance(cart)
