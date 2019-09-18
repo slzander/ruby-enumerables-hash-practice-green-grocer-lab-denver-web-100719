@@ -43,8 +43,8 @@ end
 
 def checkout(cart, coupons)
   hash_cart = consolidate_cart(cart)
-  coupon_cart = apply_coupons(hash_cart, coupons)
-  discount_cart = apply_clearance(coupon_cart)
+  hash_cart = apply_coupons(hash_cart, coupons)
+  hash_cart = apply_clearance(hash_cart)
   
   total_cost = discount_cart.reduce(0) { |memo, (key, value)| memo += [value][:price] * [value][:count]}
   
