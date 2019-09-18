@@ -47,9 +47,7 @@ def checkout(cart, coupons)
   discount_cart = apply_clearance(coupon_cart)
   
   total_cost = discount_cart.reduce(0) { |memo, (key, value)| acc += [value][:price] * [value][:count]}
-  hash_cart.each do |food, details|
-    total_cost += details[:price]
-  end 
+  
   total_cost *= 0.9 if total_cost >= 100
   total_cost 
 end
