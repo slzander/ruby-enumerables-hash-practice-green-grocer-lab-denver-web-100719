@@ -35,14 +35,14 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  cart.each do |m, n|
-    n[:price] -= n[:price] * 0.2 if n[:clearance]
+  cart.each do |food, details|
+    details[:price] -= details[:price] * 0.2 if details[:clearance]
   end
   cart
 end
 
 def checkout(cart, coupons)
-  # code here
+  
 end
 
 
